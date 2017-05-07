@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      My Shopping List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-8>
+        <ion-input type="text" placeholder="Item name" name="newItem" [(ngModel)]="newItem"></ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button class="add-action" (tap)="addItem();">Add</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item *ngFor="let item of items; let i = index">
+            {{ item }}
+            <button ion-button outline item-right (tap)="removeItem(i);">remove</button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  
+  </ion-grid>
+</ion-content>
